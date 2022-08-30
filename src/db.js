@@ -4,6 +4,8 @@ const fs = require("fs");
 const path = require("path");
 const { DATABASE_LOCAL } = process.env;
 
+////////////////////// VOLVER A HABILITAR DIALECT OPTIONS PARA DEPLOY //////////////////////
+
 const sequelize = new Sequelize(process.env.DATABASE_URL || DATABASE_LOCAL, {
   dialectOptions: {
     ssl: {

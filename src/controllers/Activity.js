@@ -10,7 +10,7 @@ const getActivity = async (req, res, next) => {
   try {
     const tourActivity = await Activity.findAll();
     if (tourActivity.length === 0) {
-      res.json([]);
+      res.json([]); // acá estaba devolviendo un mensaje y en el front aplicaba un map... por eso fallaba. Corregido!
     } else {
       res.status(200).json(tourActivity); // En caso de haber actividades las retorna a todas
     }
