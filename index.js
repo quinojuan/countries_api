@@ -9,7 +9,7 @@ conn.sync({ force: false }).then(async () => {
   } catch (error) {
     console.log(error);
   }
-  server.listen(3001, () => {
-    console.log("%s listening at 3001"); // eslint-disable-line no-console
+  server.listen(process.env.PORT || 3001, () => {
+    console.log(`Server listening on port 3001`); // eslint-disable-line no-console
   });
 });
