@@ -10,7 +10,7 @@ const getActivity = async (req, res, next) => {
   try {
     const tourActivity = await Activity.findAll();
     if (tourActivity.length === 0) {
-      res.json("No hay actividades");
+      res.json([]);
     } else {
       res.status(200).json(tourActivity); // En caso de haber actividades las retorna a todas
     }
