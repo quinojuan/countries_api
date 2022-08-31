@@ -12,8 +12,8 @@ const router = Router();
 router.use(bodyParser.json());
 
 //Rutas de mi API
-router.use('/countries', Countries);
-router.use('/TourActivity', Activity);
-router.use('/AllCountries', NameCountries);
+router.use('/countries', Countries); // query, id o todos...
+router.use('/TourActivity', Activity); //
+router.use('/AllCountries', NameCountries); // esta ruta la utilizo para cargar un arreglo con todos los nombres de los países únicamente 
 
 module.exports = router;
