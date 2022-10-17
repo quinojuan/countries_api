@@ -4,15 +4,15 @@ const fs = require("fs");
 const path = require("path");
 const { DATABASE_LOCAL } = process.env;
 
-////////////////////// VOLVER A HABILITAR DIALECT OPTIONS PARA DEPLOY //////////////////////
+////////////////////// VOLVER A HABILITAR DIALECT OPTIONS PARA DEPLOY  o  NO HACER EL PUSH DEL DB.JS //////////////////////
 
 const sequelize = new Sequelize(process.env.DATABASE_URL || DATABASE_LOCAL, {
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
+  // dialectOptions: {
+  //   ssl: {
+  //     require: true,
+  //     rejectUnauthorized: false,
+  //   },
+  // },
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
@@ -40,9 +40,11 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
+
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Country, Activity } = sequelize.models;
+const { Country, Activity } = sequelize.models; // necesito desestructurarlas porque las utilizo en las relaciones
+                                                // y queda mejor que poner "sequelize.models.Country o sequelize.models.Activity"
 
 // Aca vendrian las relaciones
 Country.belongsToMany(Activity, { through: "Country_Activity" });

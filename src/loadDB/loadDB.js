@@ -5,7 +5,7 @@ const { Country } = require("../db");
 
 const loadDB = async () => {
   try {
-    const validate = await Country.findOne({
+    const validate = await Country.findOne({  // este validate lo utilizo porque me pareció que optimizaba el codigo frente a un findOrCreate
       where: {
         name: "Argentina",
       },
@@ -28,11 +28,11 @@ const loadDB = async () => {
           : "No provista por la API",
         area: country.area,
         population: country.population,
+        languages: country.languages
       };
     });
 
     if (!validate) {
-      // buscar una alternativa con create para entenderlo mejor y ver el proceso paso a paso
       await Country.bulkCreate(countries);
       console.log("Countries loaded!");
     }

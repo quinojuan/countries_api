@@ -9,7 +9,7 @@ router.get("/", async (req, res, next) => {
   try {
     const allCountries = await Country.findAll({  // Busco todos los países con un criterio de ordenación y brindándole la columna a ordenar
       attributes: ["name"],
-      order: [["name", "ASC"]],
+      order: [["name", "ASC"]], // para experiencia de usuario los ordeno
     });
 
     res.status(200).send(allCountries);
