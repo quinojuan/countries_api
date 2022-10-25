@@ -27,8 +27,8 @@ const loadDB = async () => {
           ? country.subregion
           : "No provista por la API",
         area: country.area,
-        population: country.population,
-        languages: country.languages
+        population: country.population
+        // languages: country.languages
       };
     });
 

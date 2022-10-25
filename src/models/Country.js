@@ -33,9 +33,9 @@ module.exports = (sequelize) => {
     },
     population: {
       type: DataTypes.BIGINT
-    },
-    languages: {
-      type: DataTypes.ARRAY(DataTypes.STRING)
     }
+    // languages: {
+    //   type: DataTypes.ARRAY(DataTypes.STRING)
+    // }
   });
 };
