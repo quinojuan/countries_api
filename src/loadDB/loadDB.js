@@ -22,10 +22,10 @@ const loadDB = async () => {
         region: country.region,
         capital: country.capital
           ? country.capital[0]
-          : "No provista por la API",
+          : "No entregada por la API",
         subregion: country.subregion
           ? country.subregion
-          : "No provista por la API",
+          : "No entregada por la API",
         area: country.area,
         population: country.population
         // languages: country.languages
