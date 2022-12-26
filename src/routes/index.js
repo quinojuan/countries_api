@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const Countries = require('./Countries.js');
 const Activity = require('./TourActivity.js');
 const NameCountries = require('./NameCountries.js');
+const Welcome = require("../controllers/Welcome")
 
 const router = Router();
 
@@ -15,5 +16,6 @@ router.use(bodyParser.json());
 router.use('/countries', Countries); // query, id o todos...
 router.use('/TourActivity', Activity); //
 router.use('/AllCountries', NameCountries); // esta ruta la utilizo para cargar un arreglo con todos los nombres de los países únicamente 
+router.use("/", Welcome)
 
 module.exports = router;
